@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30501.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Space_RPG", "Space RPG\Space_RPG\Space_RPG.csproj", "{72DBABAE-F518-4CA5-BFEB-21BA6BBA7D53}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "Space_RPGContent", "Space RPG\Space_RPGContent\Space_RPGContent.contentproj", "{72026ECC-E75E-48DE-91A1-803E8A090600}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzEngine2D", "AzEngine2D\AzEngine2D.csproj", "{CFC3BF5E-AEA7-4D34-A505-64C087E30AF0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{72DBABAE-F518-4CA5-BFEB-21BA6BBA7D53}.Debug|x86.ActiveCfg = Debug|x86
+		{72DBABAE-F518-4CA5-BFEB-21BA6BBA7D53}.Debug|x86.Build.0 = Debug|x86
+		{72DBABAE-F518-4CA5-BFEB-21BA6BBA7D53}.Release|x86.ActiveCfg = Release|x86
+		{72DBABAE-F518-4CA5-BFEB-21BA6BBA7D53}.Release|x86.Build.0 = Release|x86
+		{72026ECC-E75E-48DE-91A1-803E8A090600}.Debug|x86.ActiveCfg = Debug|x86
+		{72026ECC-E75E-48DE-91A1-803E8A090600}.Release|x86.ActiveCfg = Release|x86
+		{CFC3BF5E-AEA7-4D34-A505-64C087E30AF0}.Debug|x86.ActiveCfg = Debug|x86
+		{CFC3BF5E-AEA7-4D34-A505-64C087E30AF0}.Debug|x86.Build.0 = Debug|x86
+		{CFC3BF5E-AEA7-4D34-A505-64C087E30AF0}.Release|x86.ActiveCfg = Release|x86
+		{CFC3BF5E-AEA7-4D34-A505-64C087E30AF0}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
