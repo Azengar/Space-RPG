@@ -22,6 +22,7 @@ namespace Space_RPG
     /// </summary>
     public class SpaceGame : AzGame
     {
+        // Le spriteBatch c'est le bien
         SpriteBatch spriteBatch;
 
         Player player;
