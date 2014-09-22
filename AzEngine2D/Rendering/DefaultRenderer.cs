@@ -11,11 +11,14 @@ namespace AzEngine2D.Rendering
 {
     public class DefaultRenderer : IRenderer
     {
-        public DefaultRenderer() {}
 
-        public void Render (IRenderable renderable, Vector2 onScreenPosition, Dimension onScreenDimension)
+        public DefaultRenderer()
         {
-            //renderable.Render(onScreenPosition, onScreenDimension);
+        }
+
+        public void RenderInWorld (SpriteBatch spriteBatch, IRenderable renderable)
+        {
+            //rend
         }
     }
 }

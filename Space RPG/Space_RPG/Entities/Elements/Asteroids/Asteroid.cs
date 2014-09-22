@@ -35,7 +35,10 @@ namespace Space_RPG.Entities.Elements.Asteroids
         public Asteroid ()
         {
             sourceRect = genRandAsteroid();
+
             Position = genRandPosition();
+            Dimension = new Dimension(sourceRect.Width, sourceRect.Height);
+
             Direction = genRandDirection();
             Speed = 1f;
         }
@@ -44,7 +47,10 @@ namespace Space_RPG.Entities.Elements.Asteroids
         {
             Scale = 2.0f;
             this.sourceRect = sourceRect;
+
             Position = position;
+            Dimension = new Dimension(sourceRect.Width, sourceRect.Height);
+
             Direction = direction;
             Speed = speed;
         }
@@ -56,6 +62,8 @@ namespace Space_RPG.Entities.Elements.Asteroids
             sourceRect = genRandAsteroid();
 
             Position = position;
+            Dimension = new Dimension(sourceRect.Width, sourceRect.Height);
+
             Speed = speed;
             Rotation = rotation;
 

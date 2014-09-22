@@ -10,7 +10,7 @@ using System.Text;
 
 namespace AzEngine2D.Camera
 {
-    public abstract class Camera : AzGameComponent, ICamera, IUpdatable
+    public abstract class Camera : AzGameComponent, ICamera
     {
         public virtual Vector2 Position { get; set; }
         public Dimension ViewPort { get; set; }
@@ -29,8 +29,6 @@ namespace AzEngine2D.Camera
         {
             ScreenCenter = new Vector2(ViewPort.Width / 2, ViewPort.Height / 2);
         }
-
-        public abstract void Update(GameTime gameTime);
 
         public bool IsInView(Vector2 position, Texture2D texture)
         {

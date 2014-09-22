@@ -10,6 +10,6 @@ namespace AzEngine2D.Rendering
 {
     public interface IRenderer
     {
-        void Render(IRenderable renderable, Vector2 onScreenPosition, Dimension onScreenDimension);
+       // void Render(IRenderable renderable);
     }
 }

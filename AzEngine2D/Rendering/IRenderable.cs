@@ -11,11 +11,6 @@ namespace AzEngine2D.Rendering
 {
     public interface IRenderable
     {
-        Vector2 Position { get; set; }
-        Dimension Dimension { get; set; }
-        float Scale { get; set; }
-        float Rotation { get; set; }
-
         void Render(SpriteBatch spriteBatch);
     }
 }

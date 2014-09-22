@@ -33,18 +33,22 @@ namespace AzEngine2D.Core
 
         public GraphicsDeviceManager GraphicsDeviceManager;
 
-        public List<Entity> Entities { get; set; }
+        public List<AzGameComponent> GameObjects { get; set; }
 
-        private IRenderer renderer;
+        public List<IRenderable> WorldRenderables { get; set; }
+
+        public List<IRenderable> FixedRenderables { get; set; }
+
+        public IRenderer Renderer { get; set; }
 
         public AzGame ()
         {
             Instance = this;
             GraphicsDeviceManager = new GraphicsDeviceManager(this);
-            renderer = new DefaultRenderer();
+            Renderer = new DefaultRenderer();
             KeyManager = new KeyManager();
             Mouse = new AzEngine2D.Controller.Mouse();
-            Entities = new List<Entity>();
+            GameObjects = new List<AzGameComponent>();
         }
 
         public Dimension GetResolution()
@@ -76,17 +80,17 @@ namespace AzEngine2D.Core
             KeyManager.Initialize();
             Camera.Initialize();
 
-            foreach (Entity e in Entities)
+            foreach (AzGameComponent component in GameObjects)
             {
-                e.Initialize();
+                component.Initialize();
             }
         }
 
         protected override void LoadContent()
         {
-            foreach (Entity e in Entities)
+            foreach (AzGameComponent component in GameObjects)
             {
-                e.LoadContent(Content);
+                component.LoadContent(Content);
             }
         }
 
@@ -95,42 +99,12 @@ namespace AzEngine2D.Core
             KeyManager.updateInput();
             Camera.Update(gameTime);
 
-            foreach (Entity e in Entities)
+            foreach (AzGameComponent component in GameObjects)
             {
-                e.Update(gameTime);
+                component.Update(gameTime);
             }
 
             base.Update(gameTime);
-        }
-
-        protected void RenderWorld (SpriteBatch spriteBatch)
-        {
-            foreach (Entity e in Entities)
-            {
-                e.Render(spriteBatch);
-            }
-        }
-
-        protected override void Draw(GameTime gameTime)
-        {
-            if (Camera == null)
-            {
-                Console.WriteLine("Camera not set ! Please set one in your basegame class with this.Camera in order to draw");
-                return;
-            }
-
-            foreach (Entity e in Entities)
-            {
-                //e.Render(SpriteBatch);
-            }
-
-            /*foreach (IRenderable renderable in Entities)
-            {
-                renderable.Render(renderable.Position, renderable.Dimension);
-            }*/
-
-            //Camera.RenderView(renderer, Entities.Cast<IRenderable>().ToList());
-            base.Draw(gameTime);
         }
 
         protected override void UnloadContent()

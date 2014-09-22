@@ -62,6 +62,31 @@ namespace AzEngine2D.Graphics
         public bool isFinished { get; set; }
         public Vector2 Origin { get; set; }
 
+        public Texture2D ActualTexture 
+        {
+            get 
+            { 
+                Texture2D sprite = new Texture2D(AzGame.Instance.GraphicsDevice, frames[ActualFrame].Width, frames[ActualFrame].Height);
+                Color[] data = new Color[frames[ActualFrame].Width * frames[ActualFrame].Height];
+                sprite.GetData(0, frames[ActualFrame], data, 0, data.Length);
+                sprite.SetData(data);
+                return sprite;
+            }
+        }
+
+        public virtual Rectangle ActualBounds
+        {
+            get
+            {
+                return new Rectangle(
+                    (int)Position.X - ActualTexture.Width,
+                    (int)Position.Y - ActualTexture.Height,
+                    ActualTexture.Width,
+                    ActualTexture.Height);
+            }
+
+        }
+
         private Texture2D sprites;
         private Rectangle[] frames;
         private int maxFrame;

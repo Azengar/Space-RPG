@@ -15,7 +15,6 @@ namespace AzEngine2D.States
         public State () {}
 
         public virtual void HandleInput(Keys key, bool pressed) { }
-        public virtual void Update(GameTime gameTime) { }
         public virtual void Enter() { }
         public virtual void Exit() { }
 

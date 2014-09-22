@@ -8,7 +8,7 @@ using System.Text;
 
 namespace AzEngine2D.Graphics
 {
-    public class SpriteGroup : AzGameComponent, IUpdatable
+    public class SpriteGroup : AzGameComponent
     {
         public Entity Entity { get; set; }
         public float Scale { get; set; }
@@ -34,9 +34,7 @@ namespace AzEngine2D.Graphics
             Rotation = rotation;
         }
 
-        public override void Initialize() { }
-
-        public void Update (GameTime gameTime)
+        public override void Update (GameTime gameTime)
         {
             foreach (Sprite sprite in sprites)
             {

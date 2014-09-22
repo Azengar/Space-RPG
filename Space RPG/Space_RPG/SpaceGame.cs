@@ -69,10 +69,12 @@ namespace Space_RPG
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             player = new Player(new Vector2(1000, 1000), new Dimension(64, 64));
-            Entities.Add(player);
 
             AsteroidsField = new AsteroidsField(new Rectangle(0, 0, 4000, 4000));
             AsteroidsField.LoadContent(Content);
+
+            GameObjects.Add(player);
+            GameObjects.Add(AsteroidsField);
 
             Camera = new EntityCenteredCamera(GetResolution(), player);
 
@@ -125,8 +127,10 @@ namespace Space_RPG
 
             // TODO: Add your drawing code here
             spriteBatch.Begin(SpriteSortMode.Deferred, BlendState.AlphaBlend, SamplerState.PointClamp, null, null, null, Camera.Transform);
-            RenderWorld(spriteBatch);
+
+            player.Render(spriteBatch);
             AsteroidsField.Render(spriteBatch);
+
             spriteBatch.End();
 
         }

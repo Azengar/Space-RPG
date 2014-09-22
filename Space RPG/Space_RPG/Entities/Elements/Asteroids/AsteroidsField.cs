@@ -11,7 +11,7 @@ using System.Text;
 
 namespace Space_RPG.Entities.Elements.Asteroids
 {
-    public class AsteroidsField : AzGameComponent, IUpdatable
+    public class AsteroidsField : AzGameComponent, IRenderable
     {
 
 
@@ -45,15 +45,33 @@ namespace Space_RPG.Entities.Elements.Asteroids
         private void fillField ()
         {
             int i = (int)(((Boundary.Width + Boundary.Height) / 2) / (20 * Density));
+            int j = 0;
             do
             {
                 Vector2 asteroidPos = new Vector2(rand.Next(Boundary.X, Boundary.X + Boundary.Width), rand.Next(Boundary.Y,Boundary.Y + Boundary.Height));
                 float asteroidSpeed = rand.NextFloat(MinSpeed, MaxSpeed);
                 float asteroidRotation = 0.025f;
-                Asteroids.Add(new Asteroid(asteroidPos, asteroidSpeed, asteroidRotation));
+                Asteroid asteroid = new Asteroid(asteroidPos, asteroidSpeed, asteroidRotation);
+                j++;
+
+                if (!Intersect(asteroid))
+                    Asteroids.Add(asteroid);
+                else
+                    i++;
             }
             while (--i > 0);
 
+        }
+
+        public bool Intersect (Asteroid asteroid)
+        {
+            foreach (Asteroid other in Asteroids)
+            {
+                if (asteroid.CollidesWith(other, true))
+                    return true;
+            }
+
+            return false;
         }
 
         public override void Initialize()
